@@ -1,10 +1,10 @@
 import React from 'react';
 import '../static/css/DialogComponent.css';
 
-export default function BottomDialogComponent() {
+export default function BottomDialogComponent(props) {
     return (
         <div>
-            <div class="bubble bubble-bottom">Какое то действие</div>
+            <p class="bubble bubble-bottom" onClick={props.closePopup}>Какое то действие</p>
         </div>
     )
 }

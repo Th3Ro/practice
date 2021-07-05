@@ -7,24 +7,45 @@ import BottomDialog from '../components/BottomDialogComponent';
 
 export default class NewsComponent extends Component {
     state = {
-        showDialog: false
+        showDialog: false,
+        isTopDialog: true
     };
 
     // функция открытия диалога
-    togglePopup() {
+    togglePopup(e) {
         this.setState({
             showDialog: !this.state.showDialog
         })
+        let headerRect = document.getElementById("header").getBoundingClientRect(),
+        element = e.target,
+        elemRect = element.getBoundingClientRect(),
+        offset   = elemRect.top - headerRect.top;
+        if(offset > 160) {
+            this.setState({
+                isTopDialog: true
+            })
+        }
+        else{
+            console.log('else')
+            this.setState({
+                isTopDialog: false
+            })
+        }
     }
 
     render() {
         return (
             <div>
                 {this.state.showDialog ? 
+                    this.state.isTopDialog ?
                     <TopDialog
                         closePopup={this.togglePopup.bind(this)}
                     />
-                    : null
+                    :
+                    <BottomDialog
+                        closePopup={this.togglePopup.bind(this)}
+                    />
+                    : null 
                 }
                 <div className="news-block">
                     <div className="news-header-block">
@@ -53,22 +74,6 @@ export default class NewsComponent extends Component {
                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
                         voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
                         anim id est laborum.</p>
-                        {/* <p className="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-                        anim id est laborum.</p>
-                        <p className="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-                        anim id est laborum.</p>
-                        <p className="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-                        anim id est laborum.</p>
-                        <p className="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-                        anim id est laborum.</p> */}
                     </div>
                 </div>
             </div>

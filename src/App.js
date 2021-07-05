@@ -5,17 +5,21 @@ import NewsComponent from './components/NewsComponent';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={searchImage} alt="Search" className="search-image"></img>
-        <input type="search" className="search-field" placeholder="Поиск"></input>
+      <header className="App-header" id="header">
+        <div className="header-search">
+          <img src={searchImage} alt="Search"></img>
+          <input type="search" className="search-field" placeholder="Поиск"></input>
+        </div>
       </header>
       <div className="news">
-        <NewsComponent/>
-        <NewsComponent/>
-        <NewsComponent/>
-        <NewsComponent/>
-        <NewsComponent/>
-        <NewsComponent/>
+        <div className="news-list">
+          <NewsComponent/>
+          <NewsComponent/>
+          <NewsComponent/>
+          <NewsComponent/>
+          <NewsComponent/>
+          <NewsComponent/>
+        </div>
       </div>
     </div>
   );
