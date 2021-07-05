@@ -12,6 +12,10 @@ function App() {
       <div className="news">
         <NewsComponent/>
         <NewsComponent/>
+        <NewsComponent/>
+        <NewsComponent/>
+        <NewsComponent/>
+        <NewsComponent/>
       </div>
     </div>
   );

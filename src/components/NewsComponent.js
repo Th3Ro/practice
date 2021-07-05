@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import '../static/css/NewsComponent.css';
 import gitLogo from '../static/images/gitLogo.png';
 import menu from '../static/images/menu.png';
-import TopDialogComponent from '../components/TopDialogComponent';
+import TopDialog from '../components/TopDialogComponent';
+import BottomDialog from '../components/BottomDialogComponent';
 
 export default class NewsComponent extends Component {
     state = {
@@ -20,7 +21,7 @@ export default class NewsComponent extends Component {
         return (
             <div>
                 {this.state.showDialog ? 
-                    <TopDialogComponent
+                    <TopDialog
                         closePopup={this.togglePopup.bind(this)}
                     />
                     : null
