@@ -26,7 +26,6 @@ export default class NewsComponent extends Component {
             })
         }
         else{
-            console.log('else')
             this.setState({
                 isTopDialog: false
             })
@@ -40,40 +39,23 @@ export default class NewsComponent extends Component {
                     this.state.isTopDialog ?
                     <TopDialog
                         closePopup={this.togglePopup.bind(this)}
+                        link={this.props.newsObject.link}
                     />
                     :
                     <BottomDialog
                         closePopup={this.togglePopup.bind(this)}
+                        link={this.props.newsObject.link}
                     />
                     : null 
                 }
                 <div className="news-block">
                     <div className="news-header-block">
                         <img src={gitLogo} alt="Git logo" className="git-logo"></img>
-                        <h2 className="news-header-text">Название новости</h2>
+                        <h2 className="news-header-text">{this.props.newsObject.title}</h2>
                         <img src={menu} alt="menu" className="menu" onClick={this.togglePopup.bind(this)}></img>
                     </div>
                     <div className="news-text-block">
-                        <p className="news-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-                        anim id est laborum.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-                        anim id est laborum.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-                        anim id est laborum.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-                        anim id est laborum.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-                        anim id est laborum.</p>
+                        <p className="news-text" dangerouslySetInnerHTML={{__html: this.props.newsObject.content}} />
                     </div>
                 </div>
             </div>

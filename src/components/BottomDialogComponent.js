@@ -3,8 +3,8 @@ import '../static/css/DialogComponent.css';
 
 export default function BottomDialogComponent(props) {
     return (
-        <div>
-            <p class="bubble bubble-bottom" onClick={props.closePopup}>Какое то действие</p>
+        <div className="bubble bubble-bottom">
+            <a href={props.link} onClick={props.closePopup} target="_blank" rel="noreferrer">Открыть оригинал</a>
         </div>
     )
 }

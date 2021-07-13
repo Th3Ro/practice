@@ -3,8 +3,8 @@ import '../static/css/DialogComponent.css';
 
 export default function TopDialogComponent(props) {
     return (
-        <div>
-            <p class="bubble bubble-top" onClick={props.closePopup}>Какое то действие</p>
+        <div className="bubble bubble-top">
+            <a href={props.link}  onClick={props.closePopup} target="_blank" rel="noreferrer">Открыть оригинал</a>
         </div>
     )
 }
