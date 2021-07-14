@@ -9,8 +9,12 @@ function App() {
   const [searchText, setsearchText] = useState("");
 
   useEffect(() => {
-    setNews(NewsService.getNews().items);
-  });
+    NewsService.getNews("http://www.reddit.com/.rss").then((response) => {
+        setNews(response.data.items)
+      }
+    )
+    console.log(newses);
+  }, []);
 
   const changeSearchField = (event) => {
     if (event.target.value !== ''){
